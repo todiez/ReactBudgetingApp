@@ -25,7 +25,7 @@ export async function dashboadAction({ request }) {
     return toast.success(`Welcome, ${formData.userName}`);
   } catch (e) {
     console.log(e);
-    throw new Error("There was a problem creating your account.")
+    throw new Error("There was a problem creating your account.");
   }
 }
 
