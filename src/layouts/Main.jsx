@@ -22,8 +22,7 @@ const Main = () => {
   return (
     <div className="layout">
       <Nav userName={userName} />
-      <main>
-        Inside Main
+      <main>        
         <Outlet />
       </main>
       <img src={ wave } alt="" />

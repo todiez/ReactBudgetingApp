@@ -11,7 +11,7 @@ import Main, { mainLoader } from "./layouts/Main";
 import { logoutAction } from "./actions/logout";
 
 //Routes
-import Dashboard, { dashboardLoader } from "./pages/Dashboard";
+import Dashboard, { dashboadAction, dashboardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
 
 
@@ -26,6 +26,7 @@ const router = createBrowserRouter([
         index: true, //same as -->    path: "/",
         element: <Dashboard />,
         loader: dashboardLoader,
+        action: dashboadAction,
         errorElement: <Error />
       }, 
       {
