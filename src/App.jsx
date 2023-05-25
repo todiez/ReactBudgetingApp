@@ -14,7 +14,6 @@ import { logoutAction } from "./actions/logout";
 import Dashboard, { dashboardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
