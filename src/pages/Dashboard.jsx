@@ -6,12 +6,10 @@ import { fetchData } from "../helpers";
 
 //components import
 import Intro from "../components/Intro";
+import AddBudgetForm from "../components/AddBudgetForm";
 
 //library imports
 import { toast } from "react-toastify";
-
-//components imports
-import AddBudgetForm from "../components/AddBudgetForm";
 
 //loader function
 export function dashboardLoader() {
