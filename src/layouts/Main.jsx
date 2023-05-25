@@ -20,12 +20,13 @@ const Main = () => {
   const { userName } = useLoaderData();
 
   return (
-    <div className="Layout">
+    <div className="layout">
       <Nav userName={userName} />
       <main>
+        Inside Main
         <Outlet />
       </main>
-      <img src="{ wave }" alt="" />
+      <img src={ wave } alt="" />
     </div>
   );
 };
