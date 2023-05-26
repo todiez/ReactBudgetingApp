@@ -21,13 +21,17 @@ export function dashboardLoader() {
 //action
 export async function dashboadAction({ request }) {
   const data = await request.formData();
-  const formData = Object.fromEntries(data);
-  try {
-    localStorage.setItem("userName", JSON.stringify(formData.userName));
-    return toast.success(`Welcome, ${formData.userName}`);
-  } catch (e) {
-    console.log(e);
-    throw new Error("There was a problem creating your account.");
+  const {_action, ...values} = Object.fromEntries(data);
+  
+  //new user submission
+  if (_action === "newUser") {
+    try {
+      localStorage.setItem("userName", JSON.stringify(values.userName));
+      return toast.success(`Welcome, ${values.userName}`);
+    } catch (e) {
+      console.log(e);
+      throw new Error("There was a problem creating your account.");
+    }
   }
 }
 
@@ -41,12 +45,13 @@ const Dashboard = () => {
           <h1>
             Welcome back, <span className="accent">{userName}</span>
           </h1>
-          <div className="grid-sm">{/* {budgets ? () : ()} */}
-          <div className="grid-lg">
-            <div className="flex-lg">
-              <AddBudgetForm />
+          <div className="grid-sm">
+            {/* {budgets ? () : ()} */}
+            <div className="grid-lg">
+              <div className="flex-lg">
+                <AddBudgetForm />
+              </div>
             </div>
-          </div>
           </div>
         </div>
       ) : (
