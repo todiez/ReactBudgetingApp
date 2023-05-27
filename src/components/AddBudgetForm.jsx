@@ -16,7 +16,7 @@ const AddBudgetForm = () => {
   const focusRef = useRef(); //go back after submitting from amount to Budget Name in the Form
 
   useEffect(() => {
-    if(!isSubmitting) {
+    if (!isSubmitting) {
       formRef.current.reset();
       focusRef.current.focus();
     }
@@ -51,8 +51,14 @@ const AddBudgetForm = () => {
         </div>
         <input type="hidden" name="_action" value="createBudget" />
         <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
-            <span>Create budget</span>
-            <CurrencyEuroIcon width={20} />
+          {isSubmitting ? (
+            <span>Creating budget...</span>
+          ) : (
+            <>
+              <span>Create budget</span>
+              <CurrencyEuroIcon width={20} />
+            </>
+          )}
         </button>
       </fetcher.Form>
     </div>
