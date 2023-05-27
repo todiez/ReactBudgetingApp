@@ -2,7 +2,7 @@
 import { useLoaderData } from "react-router-dom";
 
 //helper functions
-import { createBudget, fetchData, waait } from "../helpers";
+import { createBudget, createExpense, fetchData, waait } from "../helpers";
 
 //components import
 import Intro from "../components/Intro";
@@ -35,7 +35,9 @@ export async function dashboadAction({ request }) {
       console.log(e);
       throw new Error("There was a problem creating your account.");
     }
-  } else if (_action === "createBudget") {
+  } 
+  
+  if (_action === "createBudget") {
     try {
       //create budget
       createBudget({
@@ -43,6 +45,22 @@ export async function dashboadAction({ request }) {
         amount: values.newBudgetAmount,
       });
       return toast.success("Budget created!");
+    } catch (e) {
+      throw new Error("There was a problem creating your budget.");
+    }
+  }
+
+  if (_action === "createExpense") {
+    try {
+      //create an expense
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget
+
+      })
+      
+      return toast.success(`Expense ${values.newExpense} created!`);
     } catch (e) {
       throw new Error("There was a problem creating your budget.");
     }
