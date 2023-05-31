@@ -13,7 +13,6 @@ import BudgetItem from "../components/BudgetItem";
 //library imports
 import { toast } from "react-toastify";
 
-
 //loader function
 export function dashboardLoader() {
   const userName = fetchData("userName");
@@ -87,9 +86,11 @@ const Dashboard = () => {
                 </div>
                 <h2>Existing Budgets</h2>
                 <div className="budgets">
-                  {budgets.map((budget) => {
-                    <BudgetItem key={budget.id} budget={budget} />;
-                  })}
+                  {
+                    budgets.map((budget) => (
+                      <BudgetItem key={budgets.id} budget={budget} />
+                    ))
+                  }
                 </div>
               </div>
             ) : (
