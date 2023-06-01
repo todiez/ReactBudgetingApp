@@ -1,5 +1,5 @@
 export const waait = () =>
-  new Promise((res) => setTimeout(res, Math.random() * 800));
+  new Promise((res) => setTimeout(res, Math.random() * 500));
 
 //colors
 const generateRandomColor = () => {
