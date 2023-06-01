@@ -12,6 +12,13 @@ export const fetchData = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
 
+//Get all matching Items from local storage
+export const getAllMatchingItems = ({category, key, value}) => {
+  const data = fetchData(category) ?? [];
+  return data.filter((item) => item[key] === value);
+}
+
+
 //create budget
 export const createBudget = ({ name, amount }) => {
   const newItem = {
