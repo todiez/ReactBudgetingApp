@@ -13,7 +13,7 @@ import { logoutAction } from "./actions/logout";
 //Routes
 import Dashboard, { dashboadAction, dashboardLoader } from "./pages/Dashboard";
 import Error from "./pages/Error";
-import { ExpensesPage } from "./pages/ExpensesPage";
+import ExpensesPage, { expensesLoader } from "./pages/ExpensesPage";
 
 
 const router = createBrowserRouter([
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "expenses", 
         element: <ExpensesPage />,
-        //loader: expensesLoader,
+        loader: expensesLoader,
       }, 
       {
         path: "logout",
