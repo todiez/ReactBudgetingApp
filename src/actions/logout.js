@@ -10,7 +10,10 @@ import { deleteItem } from "../helpers";
 
 export async function logoutAction() {
     //delete the user
-    deleteItem( {key: "userName" })
+    deleteItem( {key: "userName"});
+    deleteItem( {key: "budgets"});
+    deleteItem( {key: "expenses"});
+    
     //alert("logged out");
     toast.success("You've deleted your Account!") //just a nicer alert :D
     
