@@ -53,6 +53,8 @@ export const calculateSpentByBudget = (budgetId) => {
     return acc += expense.amount;
 
   }, 0);
+
+  return budgetSpent;
 }
 
 //FORMATTING
