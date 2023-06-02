@@ -16,13 +16,10 @@ export async function expensesLoader() {
 }
 
 //action
-
 export async function expensesAction({request}) {
-
   const data = await request.formData();
   const { _action, ...values } = Object.fromEntries(data);
   
-
   if (_action === "deleteExpense") {
     try {
       //delete an expense
