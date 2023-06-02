@@ -67,7 +67,24 @@ export async function dashboadAction({ request }) {
       throw new Error("There was a problem creating your budget.");
     }
   }
+
+  if (_action === "deleteExpense") {
+    try {
+      //create an expense
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget,
+      });
+
+      return toast.success("Expense deleted!");
+    } catch (e) {
+      throw new Error("There was a problem creating your budget.");
+    }
+  }
 }
+
+
 
 const Dashboard = () => {
   const { userName, budgets, expenses } = useLoaderData();

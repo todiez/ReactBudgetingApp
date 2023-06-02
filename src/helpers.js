@@ -16,7 +16,17 @@ export const fetchData = (key) => {
 export const getAllMatchingItems = ({category, key, value}) => {
   const data = fetchData(category) ?? [];
   return data.filter((item) => item[key] === value);
-}
+};
+
+//delete item from local storate
+export const deleteItem = ({key, id}) => {
+  const existingData = fetchData(key);
+  if(id) {
+    const newData = existingData.filter((item) => item.id !== id )
+    return localStorage.setItem(key, JSON.stringify(newData));
+  }
+  return localStorage.removeItem(key);
+};
 
 
 //create budget
@@ -51,10 +61,6 @@ export const createExpense = ({ name, amount, budgetId }) => {
   );
 };
 
-//delete item
-export const deleteItem = ({ key }) => {
-  return localStorage.removeItem(key);
-};
 
 //total spent by budget
 export const calculateSpentByBudget = (budgetId) => {

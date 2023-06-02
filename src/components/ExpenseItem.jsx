@@ -9,6 +9,8 @@ import {
 } from "../helpers";
 import { TrashIcon } from "@heroicons/react/24/solid";
 
+
+
 const ExpenseItem = ({ expense }) => {
   const fetcher = useFetcher();
 
@@ -24,7 +26,7 @@ const ExpenseItem = ({ expense }) => {
       <td>{formatCurrency(expense.amount)}</td>
       <td>{formateDateToLocaleString(expense.createdAt)}</td>
       <td>
-        <Link to={`/budget(${budget.id})`} style={{ "--accent": budget.color }}>
+        <Link to={`/budget/${budget.id}`} style={{ "--accent": budget.color }}>
           {budget.name}
         </Link>
       </td>
