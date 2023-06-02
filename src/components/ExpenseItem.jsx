@@ -31,7 +31,8 @@ const ExpenseItem = ({ expense }) => {
         </Link>
       </td>
       <td>
-        <fetcher.Form method="post">
+        {/* fetcher.Form instead of form can handle multiple actions at the same time, necessary e.g. for delay of database or api or sth */}
+        <fetcher.Form method="post"> 
           {/* what to do with the form */}
           <input type="hidden" name="_action" value="deleteExpense" />
           {/* deleting the actual data */}

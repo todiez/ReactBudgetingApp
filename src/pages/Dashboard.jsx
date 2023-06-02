@@ -2,7 +2,7 @@
 import { Link, useLoaderData } from "react-router-dom";
 
 //helper functions
-import { createBudget, createExpense, fetchData, waait } from "../helpers";
+import { createBudget, createExpense, deleteItem, fetchData, waait } from "../helpers";
 
 //components import
 import Intro from "../components/Intro";
@@ -70,16 +70,15 @@ export async function dashboadAction({ request }) {
 
   if (_action === "deleteExpense") {
     try {
-      //create an expense
-      createExpense({
-        name: values.newExpense,
-        amount: values.newExpenseAmount,
-        budgetId: values.newExpenseBudget,
+      //delete an expense
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId, //from hidden input of the button respectivle form
       });
 
       return toast.success("Expense deleted!");
     } catch (e) {
-      throw new Error("There was a problem creating your budget.");
+      throw new Error("There was a problem deleting your expense.");
     }
   }
 }
