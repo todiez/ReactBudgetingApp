@@ -4,7 +4,9 @@ import { toast } from "react-toastify";
 //helpers
 import { deleteItem } from "../helpers";
 
-export function deleteBuget({ params }) {
+export function deleteBudget({ params }) {
+  //alert("inside deleteBuget")
+
   try {
     deleteItem({
       key: "budgets",
